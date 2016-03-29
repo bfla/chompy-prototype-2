@@ -1,10 +1,10 @@
 Template.home.onCreated(function() {  
-  this.subscribe('posts');
+  this.subscribe('chomps');
 });
 
 Template.home.helpers({  
   count() {
-    return Posts.find().count();
+    return Chomps.find().count();
   }
 });
 
@@ -12,12 +12,6 @@ Template.home.events({
   'click #increment': function(e) {
     e.preventDefault();
 
-    Meteor.call('addPost');
+    Meteor.call('createChomp');
   },
-
-  'click #decrement': function(e) {
-    e.preventDefault();
-
-    Meteor.call('deletePost');
-  }
 })
