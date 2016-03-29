@@ -1,3 +1,4 @@
+_ = require('underscore');
 import React, {  
   View,
   Text,
@@ -5,7 +6,7 @@ import React, {
 } from 'react-native';
 
 import Button from './button';
-import DDPClient from 'ddp-client';  
+import DDPClient from 'ddp-client';
 let ddpClient = new DDPClient();
 
 export default React.createClass({  
@@ -58,16 +59,17 @@ export default React.createClass({
   },
 
   render() {
-    let count = Object.keys(this.state.posts).length;
-    return (
-      <View style={styles.container}>
-        <View style={styles.center}>
-          <Text>Posts: {count}</Text>
-          <Button text="Increment" onPress={this.handleIncrement}/>
-          <Button text="Decrement" onPress={this.handleDecrement}/>
-        </View>
-      </View>
-    );
+    // let count = Object.keys(this.state.posts).length;
+    return (<View><Text>hello</Text></View>);
+    // return (
+    //   <View style={styles.container}>
+    //     <View style={styles.center}>
+    //       <Text>Posts: {count}</Text>
+    //       <Button text="Increment" onPress={this.handleIncrement}/>
+    //       <Button text="Decrement" onPress={this.handleDecrement}/>
+    //     </View>
+    //   </View>
+    // );
   }
 });
 

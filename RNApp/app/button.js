@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    marginVertical: 10
+    marginVertical: 10,
   }
 });
