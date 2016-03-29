@@ -1,4 +1,4 @@
-_ = require('underscore');
+let _ = require('underscore');
 import React, {  
   View,
   Text,
@@ -13,7 +13,7 @@ export default React.createClass({
   getInitialState() {
     return {
       connected: false,
-      posts: {},
+      chomps: {},
     }
   },
 
@@ -23,53 +23,48 @@ export default React.createClass({
       if (err) connected = false;
       this.setState({ connected: connected });
       this.makeSubscriptions();
-      this.observePosts();
+      this.observeChomps();
     });
   },
 
   makeSubscriptions() {
-    ddpClient.subscribe("posts", [], () => {
-      this.setState({posts: ddpClient.collections.posts});
+    ddpClient.subscribe("chomps", [], () => {
+      this.setState({chomps: ddpClient.collections.chomps});
     });
   },
 
-  observePosts() {
-    let observer = ddpClient.observe("posts");
+  observeChomps() {
+    let observer = ddpClient.observe("chomps");
     
     observer.added = (id) => {
-      this.setState({posts: ddpClient.collections.posts})
+      this.setState({chomps: ddpClient.collections.chomps})
     }
 
     observer.changed = (id, oldFields, clearedFields, newFields) => {
-      this.setState({posts: ddpClient.collections.posts})
+      this.setState({chomps: ddpClient.collections.chomps})
     }
 
     observer.removed = (id, oldValue) => {
-      this.setState({posts: ddpClient.collections.posts})
+      this.setState({chomps: ddpClient.collections.chomps})
     }
 
   },
 
   handleIncrement() {
-    ddpClient.call('addPost');
-  },
-
-  handleDecrement() {
-    ddpClient.call('deletePost');
+    ddpClient.call('createChomp');
   },
 
   render() {
-    // let count = Object.keys(this.state.posts).length;
-    return (<View><Text>hello</Text></View>);
-    // return (
-    //   <View style={styles.container}>
-    //     <View style={styles.center}>
-    //       <Text>Posts: {count}</Text>
-    //       <Button text="Increment" onPress={this.handleIncrement}/>
-    //       <Button text="Decrement" onPress={this.handleDecrement}/>
-    //     </View>
-    //   </View>
-    // );
+    let count = Object.keys(this.state.chomps).length;
+    // return (<View><Text>hello</Text></View>);
+    return (
+      <View style={styles.container}>
+        <View style={styles.center}>
+          <Text>Chomps: {count}</Text>
+          <Button text="Increment" onPress={this.handleIncrement}/>
+        </View>
+      </View>
+    );
   }
 });
 
