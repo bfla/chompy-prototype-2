@@ -9,6 +9,7 @@
     "ddp-client": "^0.1.1",
     "react": "^0.14.7",
     "react-native": "^0.22.2",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "underscore": "^1.8.3"
   }
 }
