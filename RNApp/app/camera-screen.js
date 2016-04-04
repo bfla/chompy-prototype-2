@@ -21,6 +21,10 @@ export default React.createClass({
   },
 
   componentWillMount() {
+    this.connectDDP();
+  },
+
+  connectDDP() { // Needs tests?
     ddpClient.connect((err, wasReconnect) => {
       let connected = true;
       if (err) connected = false;
