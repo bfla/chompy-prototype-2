@@ -6,6 +6,7 @@ import React, {
 } from 'react-native';
 
 import Button from './button';
+import CameraScreen from './camera-screen';
 import DDPClient from 'ddp-client';
 let ddpClient = new DDPClient();
 
@@ -58,12 +59,13 @@ export default React.createClass({
     let count = Object.keys(this.state.chomps).length;
     // return (<View><Text>hello</Text></View>);
     return (
-      <View style={styles.container}>
-        <View style={styles.center}>
-          <Text>Chomps: {count}</Text>
-          <Button text="Increment" onPress={this.handleIncrement}/>
-        </View>
-      </View>
+      <CameraScreen></CameraScreen>
+      // <View style={styles.container}>
+      //   <View style={styles.center}>
+      //     <Text>Chomps: {count}</Text>
+      //     <Button text="Increment" onPress={this.handleIncrement}/>
+      //   </View>
+      // </View>
     );
   }
 });
